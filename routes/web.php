@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dishes', 'DishesController@showDays')->name('dishes');
+Route::get('/monday', 'DishesController@monday')->name('single_day1');
+Route::get('/tuesday', 'DishesController@tuesday')->name('single_day2');
+Route::get('/wednesday', 'DishesController@wednesday')->name('single_day3');
+Route::get('/thursday', 'DishesController@thursday')->name('single_day4');
+Route::get('/friday', 'DishesController@friday')->name('single_day5');
