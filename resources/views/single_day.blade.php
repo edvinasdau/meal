@@ -1,45 +1,41 @@
     @extends("layouts.app")
     @section('content')
-    {{ csrf_field() }}
+    
     <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <th>Pavadinimas</th>
-                <th>Kaina</th>
-            </thead>
-            <tbody>
-                <form action="" method="post">
-                   @foreach($soups as $soup)
-                   <tr>
-                    <td>{{$soup->title}}</td>
-                    <td>{{$soup->price}} € <input type="checkbox" value="{{$soup->title}}"></td>
-                </tr>
+                Pavadinimas
+                Kaina
+              <form class="form-group" action="{{route('store')}}" method="post">
+                {{csrf_field()}}
+                @foreach($soups as $soup)
+                <ul>
+                    <li>{{$soup->title}}</li>
+                    <li>{{$soup->price}} € <input name="soup" type="checkbox" value="{{$soup->title}}"></li>
+                </ul>
                 @endforeach 
                 @foreach($mains as $main)
-                <tr>
-                    <td>{{$main->title}}</td>
-                    <td>{{$main->price}} € <input type="checkbox" value="{{$main->title}}"></button></td>
-                </tr>
+                <ul>
+                    <li>{{$main->title}}</li>
+                    <li>{{$main->price}} € <input name="main" type="checkbox" value="{{$main->title}}"></button></li>
+                </ul>
                 @endforeach 
                 @foreach($salads as $salad)
-                <tr>
-                    <td>{{$salad->title}}</td>
-                    <td>{{$salad->price}} € <input type="checkbox" value="{{$salad->title}}"></td>
-                </tr>
+                <ul>
+                    <li>{{$salad->title}}</li>
+                    <li>{{$salad->price}} € <input name="salad" type="checkbox" value="{{$salad->title}}"></li>
+                </ul>
                 @endforeach 
                 @foreach($sides as $side)
-                <tr>
-                    <td>{{$side->title}} ({{$side->type}})</td> <td><input type="checkbox" value="{{$side->title}}"></td>
-                </tr>
+                <ul>
+                    <li>{{$side->title}} ({{$side->type}})</li>
+                    <li><input name="side" type="checkbox" value="{{$side->title}}"></li>
+                </ul>
                 @endforeach
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" value="Pirkti">
-                    </td>
-                </tr>
+                <ul>
+                    <li></li>
+                    <li>
+                        <button type="submit" class="btn btn-primary">Pirkti</button>
+                    </li>
+                </ul>
             </form>
-        </tbody>
-    </table>
 </div>
 @endsection
