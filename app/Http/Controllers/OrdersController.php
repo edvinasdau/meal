@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class OrdersController extends Controller
 {
@@ -23,7 +24,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        echo 'sdfsdfd';
+
     }
 
     /**
@@ -34,7 +35,8 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-      dd($request);
+      Order::create($request->except('_token');
+      return redirect()->route('dishes');
     }
 
     /**
