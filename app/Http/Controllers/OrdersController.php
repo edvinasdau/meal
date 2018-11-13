@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Auth;
 
 class OrdersController extends Controller
 {
@@ -35,8 +36,10 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-      Order::create($request->except('_token');
-      return redirect()->route('dishes');
+        $user_id = Auth::user()->id;
+        // dd($request);
+        Order::create($request->except('_token') + ['user_id' => $user_id]);
+        return redirect()->route('dishes');
     }
 
     /**

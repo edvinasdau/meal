@@ -34,7 +34,6 @@ class DishesController extends Controller
     			$salads = $day->monday->meals->salads;
     			$sides = $day->monday->meals->sideDishes->dishes;
     	}
-    	dd($days);
         return view('single_day', ['soups' => $soups,'mains' => $mains,'salads' => $salads,'sides' => $sides]);
     }
 

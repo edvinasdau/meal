@@ -16,7 +16,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->smallInteger('status');
+            $table->string('soup')->nullable();
+            $table->string('main')->nullable();
+            $table->string('salad')->nullable();
+            $table->string('side')->nullable();
+            $table->smallInteger('status')->default('1');
             $table->timestamp('date');
             $table->foreign('user_id')->references('id')->on('users');
         });
