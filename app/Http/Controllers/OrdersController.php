@@ -37,7 +37,6 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::user()->id;
-        // dd($request);
         Order::create($request->except('_token') + ['user_id' => $user_id]);
         return redirect()->route('dishes');
     }
