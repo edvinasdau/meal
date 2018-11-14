@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('main')->nullable();
             $table->string('salad')->nullable();
             $table->string('side')->nullable();
+            $table->double('price');
             $table->smallInteger('status')->default('1');
             $table->timestamp('date');
             $table->foreign('user_id')->references('id')->on('users');

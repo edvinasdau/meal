@@ -25,3 +25,4 @@ Route::get('/wednesday', 'DishesController@wednesday')->name('single_day3');
 Route::get('/thursday', 'DishesController@thursday')->name('single_day4');
 Route::get('/friday', 'DishesController@friday')->name('single_day5');
 Route::post('/order/store', 'OrdersController@store')->name('store');
+Route::get('/order', 'OrdersController@index')->name('order');
