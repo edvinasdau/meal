@@ -15,8 +15,13 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $order = Order::all();
-        dd($order);
+        $all_orders = Order::all();
+        foreach($all_orders as $order){
+            if(Auth::user()->id == $order->user_id){
+                $orders[] = $order;
+            }
+        }
+        return view('order', ['orders' => $orders]);        
     }
 
     /**
