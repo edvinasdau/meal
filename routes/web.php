@@ -26,3 +26,5 @@ Route::get('/thursday', 'DishesController@thursday')->name('single_day4');
 Route::get('/friday', 'DishesController@friday')->name('single_day5');
 Route::post('/order/store', 'OrdersController@store')->name('store');
 Route::get('/order', 'OrdersController@index')->name('order');
+Route::get('/edit/{id}', 'HomeController@edit')->name('edit');
+Route::resource('orders', 'HomeController');
